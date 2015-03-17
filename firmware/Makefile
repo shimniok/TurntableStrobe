@@ -39,28 +39,7 @@ EFUSE=0xff
 RM := rm -rf
 
 # All Target
-all: 
-	@echo "Specify frequency in Hz:"
-	@echo "	 make [50|100|60|120]"
-
-doit: clean $(PROJECT).elf secondary-outputs
-
-# 50Hz
-50: CFLAGS += -DPERIOD=300
-50: doit
-
-# 100Hz
-100: CFLAGS += -DPERIOD=150
-100: doit
-
-# 60Hz
-60: CFLAGS += -DPERIOD=250
-60: doit
-
-# 120Hz
-120: CFLAGS += -DPERIOD=125
-120: doit
-
+all: clean $(PROJECT).elf secondary-outputs
 
 # This is included for AVR Studio 4 compatibility
 $(PROJECT): all
