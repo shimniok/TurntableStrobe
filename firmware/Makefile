@@ -28,7 +28,7 @@ PROGRAMMER=dragon_isp
 #JTAG ICE MkII
 #PORT=usb
 #PROGRAMMER=jtag2isp
-#AVRDUDE_FLAGS=-F
+AVRDUDE_FLAGS=-B 1000 #-F
 
 LFUSE=0xff
 HFUSE=0xdf
@@ -39,7 +39,28 @@ EFUSE=0xff
 RM := rm -rf
 
 # All Target
-all: clean $(PROJECT).elf secondary-outputs
+all: 
+	@echo "Specify frequency in Hz:"
+	@echo "	 make [50|100|60|120]"
+
+doit: clean $(PROJECT).elf secondary-outputs
+
+# 50Hz
+50: CFLAGS += -DPERIOD=300
+50: doit
+
+# 100Hz
+100: CFLAGS += -DPERIOD=150
+100: doit
+
+# 60Hz
+60: CFLAGS += -DPERIOD=250
+60: doit
+
+# 120Hz
+120: CFLAGS += -DPERIOD=125
+120: doit
+
 
 # This is included for AVR Studio 4 compatibility
 $(PROJECT): all
@@ -83,7 +104,7 @@ clean:
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 
 install:
-	avrdude $(AVRDUDE_FLAGS) -B 10 -p $(TARGET) -c $(PROGRAMMER) -P $(PORT) -v -U flash:w:$(PROJECT).hex
+	avrdude $(AVRDUDE_FLAGS) -p $(TARGET) -c $(PROGRAMMER) -P $(PORT) -v -U flash:w:$(PROJECT).hex
 
 fuses:
 	avrdude $(AVRDUDE_FLAGS) -p $(TARGET) -c $(PROGRAMMER) -P $(PORT) -v -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
