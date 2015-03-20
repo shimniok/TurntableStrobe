@@ -21,17 +21,15 @@
 #define LED  PB2 
 #define PUMP PB0
 #define ONTIME 40
-#define MATCH 200		// 12MHz/4/200 = 15000
-#ifndef PERIOD
-#error No PERIOD defined, use -DPERIOD=?
-#endif
+#define MATCH 200		// 12MHz/4/200 = 15kHz, 10MHz/4/200 = 12.5kHz
+#define PERIOD 250		// 15kHz/250 = 60Hz, 12.5kHz/250 = 50Hz
 
 int main() {
 	DDRB |= (1<<LED)|(1<<PB1);
 	PORTB &= ~(1<<LED); 
 
-	TCCR1 |= (1<<PWM1A)|			// Clear timer on compare match
-			 (1<<CTC1)|				// PWM using OCR1A to count and OCR1C to match;
+	TCCR1 |= (1<<PWM1A)|			// PWM using OCR1A to count and OCR1C to match;
+			 (1<<CTC1)|				// Clear timer on compare match;
 			 (1<<CS11)|(1<<CS10);	// Run timer at PCK/4 = 12Mhz/4 = 3MHz;
 	OCR1C = MATCH-1;				// To get N counts, set OCR1C to N-1
 	TIMSK |= (1<<TOIE1);			// Enable interrupt on timer overflow
@@ -46,15 +44,17 @@ int main() {
 }
 
 ISR(TIM1_OVF_vect) {
-	static unsigned int count = 0;
+	static uint8_t count = 0;
+
 	count++;
 
 	if (count >= PERIOD) {
 		count = 0;
-	} else if (count > ONTIME) {
-		PORTB |= (1<<LED);
-	} else {
-		PORTB &= ~(1<<LED); // Toggle LED line
 	}
 
+	if (count >= ONTIME) {
+		PORTB |= (1<<LED);
+	} else {
+		PORTB &= ~(1<<LED);
+	}
 }
