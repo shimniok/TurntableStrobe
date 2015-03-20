@@ -39,7 +39,7 @@ EFUSE=0xff
 RM := rm -rf
 
 # All Target
-all: clean $(PROJECT).elf secondary-outputs
+all: $(PROJECT).elf secondary-outputs
 
 # This is included for AVR Studio 4 compatibility
 $(PROJECT): all
