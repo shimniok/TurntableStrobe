@@ -13,7 +13,7 @@ FLASH_IMAGE  = $(PROJECT).hex
 EEPROM_IMAGE = $(PROJECT).eep
 SIZEDUMMY = sizedummy
 
-F_CPU    = 12000000UL
+F_CPU    = 1500000UL
 MCU      = attiny25
 CFLAGS   = -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=$(MCU) -DF_CPU=$(F_CPU) -ffunction-sections
 LDFLAGS  = $(LIBDIRS) $(LIBS) -lm -Wl,-gc-sections
@@ -28,9 +28,10 @@ PROGRAMMER=dragon_isp
 #JTAG ICE MkII
 #PORT=usb
 #PROGRAMMER=jtag2isp
-#AVRDUDE_FLAGS=-F
+AVRDUDE_FLAGS=-B 50
 
-LFUSE=0xff
+# CKDIV8, SPIEN, BOD disabled, Ext Osc 8MHz+
+LFUSE=0x7f
 HFUSE=0xdf
 EFUSE=0xff
 
