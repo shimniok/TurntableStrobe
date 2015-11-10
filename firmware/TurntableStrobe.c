@@ -32,10 +32,9 @@
  * 10MHz xtal--no change to firmware (which is significantly more
  * convenient when you're trying to make an sell a bunch of these)
  */
-#define F_CPU 1500000UL
 #define MATCH  25		// See DesignCalcs.ods, TimerCalc tab
 #define PERIOD 250		// See DesignCalcs.ods, TimerCalc tab
-#define ONTIME 80	    // LED duty cycle (sharpness vs. brightness)
+#define ONTIME 80       // LED duty cycle (sharpness vs. brightness)
 
 /**
  * I could put one of these on OC1A ... but it's not like the 
