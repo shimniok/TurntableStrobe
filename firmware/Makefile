@@ -28,7 +28,7 @@ PROGRAMMER=dragon_isp
 #JTAG ICE MkII
 #PORT=usb
 #PROGRAMMER=jtag2isp
-AVRDUDE_FLAGS=-B 50
+AVRDUDE_FLAGS=-B 150
 
 # CKDIV8, SPIEN, BOD disabled, Ext Osc 8MHz+
 LFUSE=0x7f
@@ -84,10 +84,8 @@ clean:
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 
 install:
-	avrdude $(AVRDUDE_FLAGS) -p $(TARGET) -c $(PROGRAMMER) -P $(PORT) -v -U flash:w:$(PROJECT).hex
-
-fuses:
-	avrdude $(AVRDUDE_FLAGS) -p $(TARGET) -c $(PROGRAMMER) -P $(PORT) -v -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
+	avrdude $(AVRDUDE_FLAGS) -p $(TARGET) -c $(PROGRAMMER) -P $(PORT) -v -U flash:w:$(PROJECT).hex -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
+	#avrdude $(AVRDUDE_FLAGS) -p $(TARGET) -c $(PROGRAMMER) -P $(PORT) -v -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
 
 %.o: %.c
 	@echo 'Building file: $<'
