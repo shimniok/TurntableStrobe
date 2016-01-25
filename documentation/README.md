@@ -13,47 +13,75 @@ Though many turntables have built-in strobes, they run off of the mains frequenc
 * Insert the battery with the ```+``` symbols facing up.
 * Just press the button on top to activate the strobe.
 
+![battery](images/battery.png)
+
 ## How to Calibrate Your Turntable
-If you have timing marks, see *Timing Marks* below. If not, skip that section.
+If your turntable's platter has timing marks (pictured below) skip to *Checking Calibration*. Otherwise, you can print a strobe disc as explained below.
 
-### Timing Marks
+![timing marks](images/plattertimingmarks.jpg)  
+*My Realistic Lab-400 has 50Hz and 60Hz timing marks. Strobe disc also pictured.*
 
-1. If your turntable does _not_ have timing marks on the platter, print out one of these free turntable strobe discs on your printer:
+1. Download one of these free turntable strobe discs on your printer:
   * [60Hz.pdf](http://www.extremephono.com/ftp/60Hz.PDF) for 60Hz TurntableStrobe
   * [50Hz.pdf](http://www.extremephono.com/ftp/50Hz.PDF) for 50Hz TurntableStrobe
 * Cut out the disc and cut out a hole for the turntable spindle.
 * Remove any records from the turntable
 * Place the strobe disc on the turntable
 
+![strobe disc](images/strobedisc.jpg)
+
 ### Checking Calibration
 1. Start the turntable (refer to your owner's manual if necessary)
 * Select the timing marks corresponding to the current turntable speed
-* Hold the TurntableStrobe approximately 2" (5cm) away from the timing marks (on the platter or strobe disc, as applicable)
+* Hold the TurntableStrobe at least 2" (5cm) away from the timing marks (on the platter or strobe disc, as applicable)
 * Press the TurntableStrobe button to activate the light
 * The timing marks should now appear distinct though possibly a little bit blurry
-* If the marks appear to be moving slowly, calibration is off
+* If the marks appear to be moving slowly, then the speed/pitch calibration is incorrect
+
+![calibration](images/calibration.jpg)  
+*Calibration using a strobe disc*
+
+![calibration2](images/calibration2.jpg)  
+*Calibration using platter timing marks*
 
 If your turntable has an external pitch or speed adjustment knob, you can now adjust the speed of your deck.
 
 ### Adjusting Pitch
-Some turntables have separate pitch knobs for 45 rpm and 33-1/3 rpm. Some only have a single pitch knob.
+Some turntables have separate speed / pitch knobs for 45 rpm and 33-1/3 rpm, while others only have a single pitch knob.
+
+![LAB-400 pitch](images/speedknobs.jpg)  
+*My LAB-400 has independent adjustments for 45 RPM and 33-1/3 RPM.*
 
 1. Find the pitch knob corresponding to the current speed of the turntable.
 * Adjust the pitch knob very slowly until the timing marks appear to be stationary
-* You may find the marks will move slowly forward and backward
+* You may find the marks will slowly oscillate forward and backward.
   * This variation in pitch is normal and is called *wow*.
   * Typically, better turntables have lower variation in pitch.
-* To calibrate for an average speed, ensure the timing marks appear to move forward and backward by the same amount; that is, they remain stationary *on average*.
+* To calibrate for an *average* speed, ensure the timing marks appear to move forward and backward by the same amount; that is, they remain stationary *on average*.
+* It may not be possible to get it perfect. Just do your best.
 
 ## Troubleshooting
 
-| Problem | Causes | Solution |
-|----|----|----|
-| Timing marks are an indistinct blur | Mismatch between timing marks and strobe | Select 50Hz marks for 50Hz strobe and 60Hz marks for 60Hz strobe |
-||45RPM speed selected but 33-1/3 timing marks are illuminated, or vice versa. | Illuminate the marks corresponding to speed selection  |
-| Timing difficult to make perfectly stationary | Speed/Pitch potentiometer is dirty | Clean potentiometer with Deoxit and lubricate with FaderLube or equivalent |
-||Turntable wow| Lower end turntables may have a fair bit of wow. As long as you can't hear pitch variation when playing back long, sustained notes, you can ignore the wow and do your best to adjust pitch. If wow sounds excessive, you can try cleaning and lubricating the pitch potenitometer as above, replacing the belt if applicable, and/or having the turntable checked and serviced. |
-| Very dim light or strobe does not light up at all | Battery is low | Change battery |
+### Timing marks are an indistinct blur
+
+| Cause | Solution |
+| ----- | -------- |
+| Mismatch between timing marks and strobe | Make sure the platter timing marks (or strobe disc) match the frequency of your turntable strobe. |
+| 45 RPM speed selected but 33-1/3 timing marks are illuminated, or vice versa | Strobe discs and turntable platters use two sets of timing marks, one for each speed. Illuminate the marks corresponding to the speed selection of your turntable. |
+| Problem with turntable speed | You could try replacing the belt (if applicable), or have the turntable checked and serviced if necessary. There could be a problem with the motor, the speed controller, or something else I haven't thought of. |
+
+### Timing difficult to make perfectly stationary
+
+| Cause | Solution |
+| ----- | -------- |
+| Speed/Pitch potentiometer is dirty | Clean potentiometer with Deoxit and lubricate with FaderLube or equivalent |
+| Turntable wow | Lower end turntables may have a fair bit of wow. As long as you can't hear pitch variation when playing back long, sustained notes, you can ignore the wow and do your best to adjust pitch. If wow sounds excessive, you can try cleaning and lubricating the pitch potenitometer as above, replacing the belt if applicable, and/or having the turntable checked and serviced. |
+
+### Strobe light is very dim or strobe does not light up at all
+
+| Cause | Solution |
+| ----- | -------- |
+| Battery is low | Change battery |
 
 If you are still having problems, please [contact me on Tindie](https://www.tindie.com/stores/bot_thoughts/) and I'll do my best to help you out.
 
