@@ -6,7 +6,7 @@ With a crystal rated ±0.003% accuracy at 25°C, it is far more accurate than a 
 
 For sale on [Tindie](https://www.tindie.com/products/bot_thoughts/pocket-turntable-strobe/)
 
-[Documentation](documentation/)
+[Documentation](https://github.com/shimniok/TurntableStrobe/tree/master/documentation/)
 
 ## Features
 
