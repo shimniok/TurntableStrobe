@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="7.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -14,16 +14,16 @@
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
@@ -49,6 +49,10 @@
 <layer number="53" name="tPadExt" color="7" fill="1" visible="no" active="no"/>
 <layer number="54" name="bPadExt" color="1" fill="1" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="90" name="Modules" color="5" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="no" active="no"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="no" active="no"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="no"/>
@@ -57,6 +61,7 @@
 <layer number="96" name="Values" color="7" fill="1" visible="no" active="no"/>
 <layer number="97" name="Info" color="7" fill="1" visible="no" active="no"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="no" active="no"/>
+<layer number="99" name="SpiceOrder" color="7" fill="1" visible="no" active="no"/>
 <layer number="100" name="NonViaHole" color="14" fill="1" visible="no" active="yes"/>
 <layer number="101" name="PlacementGuide" color="7" fill="1" visible="no" active="yes"/>
 <layer number="102" name="Vscore" color="7" fill="1" visible="no" active="yes"/>
@@ -65,12 +70,32 @@
 <layer number="105" name="tPlate" color="7" fill="1" visible="no" active="yes"/>
 <layer number="106" name="bPlate" color="7" fill="1" visible="no" active="yes"/>
 <layer number="107" name="Crop" color="7" fill="1" visible="no" active="yes"/>
+<layer number="108" name="tplace-old" color="10" fill="1" visible="no" active="yes"/>
+<layer number="109" name="ref-old" color="11" fill="1" visible="no" active="yes"/>
+<layer number="110" name="fp0" color="7" fill="1" visible="no" active="yes"/>
+<layer number="111" name="LPC17xx" color="7" fill="1" visible="no" active="yes"/>
+<layer number="112" name="tSilk" color="7" fill="1" visible="no" active="yes"/>
+<layer number="113" name="IDFDebug" color="4" fill="1" visible="no" active="yes"/>
 <layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
-<layer number="121" name="tsilk" color="14" fill="1" visible="yes" active="yes"/>
-<layer number="122" name="bsilk" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="121" name="tsilk" color="14" fill="1" visible="no" active="yes"/>
+<layer number="122" name="bsilk" color="6" fill="1" visible="no" active="yes"/>
+<layer number="123" name="tTestmark" color="7" fill="1" visible="no" active="yes"/>
+<layer number="124" name="bTestmark" color="7" fill="1" visible="no" active="yes"/>
 <layer number="125" name="_tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="126" name="_bNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="127" name="_tValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="128" name="_bValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="129" name="Mask" color="7" fill="1" visible="no" active="yes"/>
+<layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="yes"/>
+<layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="no" active="yes"/>
+<layer number="150" name="Notes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="no" active="yes"/>
+<layer number="152" name="_bDocu" color="7" fill="1" visible="no" active="yes"/>
+<layer number="153" name="FabDoc1" color="7" fill="1" visible="no" active="yes"/>
+<layer number="154" name="FabDoc2" color="7" fill="1" visible="no" active="yes"/>
+<layer number="155" name="FabDoc3" color="7" fill="1" visible="no" active="yes"/>
+<layer number="199" name="Contour" color="7" fill="1" visible="no" active="yes"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="no" active="no"/>
 <layer number="201" name="201bmp" color="2" fill="10" visible="no" active="yes"/>
 <layer number="202" name="202bmp" color="3" fill="10" visible="no" active="yes"/>
@@ -96,12 +121,21 @@
 <layer number="222" name="222bmp" color="23" fill="1" visible="no" active="no"/>
 <layer number="223" name="223bmp" color="24" fill="1" visible="no" active="no"/>
 <layer number="224" name="224bmp" color="25" fill="1" visible="no" active="no"/>
+<layer number="225" name="225bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="226" name="226bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="227" name="227bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="228" name="228bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="229" name="229bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="230" name="230bmp" color="7" fill="1" visible="no" active="yes"/>
 <layer number="231" name="Eagle3D_PG1" color="14" fill="1" visible="no" active="yes"/>
 <layer number="232" name="Eagle3D_PG2" color="14" fill="2" visible="no" active="yes"/>
 <layer number="233" name="Eagle3D_PG3" color="14" fill="4" visible="no" active="yes"/>
+<layer number="248" name="Housing" color="7" fill="1" visible="no" active="yes"/>
+<layer number="249" name="Edge" color="7" fill="1" visible="no" active="yes"/>
 <layer number="250" name="Descript" color="7" fill="1" visible="no" active="yes"/>
 <layer number="251" name="SMDround" color="7" fill="1" visible="no" active="yes"/>
 <layer number="254" name="OrgLBR" color="7" fill="1" visible="no" active="yes"/>
+<layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
 <plain>
@@ -115,46 +149,11 @@
 <wire x1="2.54" y1="0" x2="22.606" y2="0" width="0" layer="20"/>
 <wire x1="22.606" y1="0" x2="25.146" y2="2.54" width="0" layer="20" curve="90"/>
 <text x="15.827" y="16.051" size="1.016" layer="26" font="vector" rot="MR0">bot-thoughts.com</text>
-<text x="7.112" y="3.048" size="1.27" layer="25" font="vector" ratio="10">Strobe</text>
+<text x="7.112" y="2.667" size="1.6764" layer="25" font="vector" ratio="10">strobe</text>
 <wire x1="2.032" y1="12.573" x2="0" y2="12.573" width="0" layer="20"/>
 <wire x1="2.032" y1="12.573" x2="2.032" y2="5.588" width="0" layer="20"/>
 <wire x1="2.032" y1="5.588" x2="0" y2="5.588" width="0" layer="20"/>
-<polygon width="0.254" layer="22">
-<vertex x="4.224565625" y="2.358009375" curve="-9.500008"/>
-<vertex x="3.993165625" y="2.4771875"/>
-<vertex x="3.418596875" y="2.00860625"/>
-<vertex x="3.02460625" y="2.402596875"/>
-<vertex x="3.4931875" y="2.977165625" curve="-19.000048"/>
-<vertex x="3.29465625" y="3.4564625"/>
-<vertex x="2.557040625" y="3.53140625"/>
-<vertex x="2.557040625" y="4.08859375"/>
-<vertex x="3.29465625" y="4.1635375" curve="-19.000048"/>
-<vertex x="3.4931875" y="4.642834375"/>
-<vertex x="3.02460625" y="5.217403125"/>
-<vertex x="3.418596875" y="5.61139375"/>
-<vertex x="3.993165625" y="5.1428125" curve="-19.000048"/>
-<vertex x="4.4724625" y="5.34134375"/>
-<vertex x="4.54740625" y="6.078959375"/>
-<vertex x="5.10459375" y="6.078959375"/>
-<vertex x="5.1795375" y="5.34134375" curve="-19.000048"/>
-<vertex x="5.658834375" y="5.1428125"/>
-<vertex x="6.233403125" y="5.61139375"/>
-<vertex x="6.62739375" y="5.217403125"/>
-<vertex x="6.1588125" y="4.642834375" curve="-19.000048"/>
-<vertex x="6.35734375" y="4.1635375"/>
-<vertex x="7.094959375" y="4.08859375"/>
-<vertex x="7.094959375" y="3.53140625"/>
-<vertex x="6.35734375" y="3.4564625" curve="-19.000048"/>
-<vertex x="6.1588125" y="2.977165625"/>
-<vertex x="6.62739375" y="2.402596875"/>
-<vertex x="6.233403125" y="2.00860625"/>
-<vertex x="5.658834375" y="2.4771875" curve="-9.500008"/>
-<vertex x="5.427434375" y="2.358009375"/>
-<vertex x="5.099378125" y="3.150003125" curve="67.500107"/>
-<vertex x="5.540375" y="3.81" curve="247.500114"/>
-<vertex x="4.552621875" y="3.150003125"/>
-</polygon>
-<text x="2.286" y="13.462" size="1.27" layer="25" font="vector" ratio="10">R0.2</text>
+<text x="20.955" y="0.889" size="1.016" layer="25" font="vector" ratio="10">R0.3</text>
 <circle x="3.683" y="2.794" radius="1.524" width="0.254" layer="21"/>
 <polygon width="0.254" layer="21">
 <vertex x="3.683" y="3.302" curve="-90"/>
@@ -175,7 +174,7 @@
 <vertex x="6.223" y="3.556"/>
 <vertex x="5.715" y="3.556"/>
 </polygon>
-<text x="7.112" y="1.397" size="1.27" layer="25" font="vector" ratio="10">60.0Hz</text>
+<text x="7.112" y="0.889" size="1.27" layer="25" font="vector" ratio="10">60.0Hz</text>
 <wire x1="5.969" y1="3.937" x2="5.969" y2="2.159" width="0.254" layer="121"/>
 <wire x1="5.789396875" y1="1.725396875" x2="5.969" y2="2.159" width="0.254" layer="121" curve="45"/>
 <wire x1="5.789396875" y1="1.725396875" x2="5.461" y2="1.397" width="0.4064" layer="121"/>
@@ -299,6 +298,7 @@
 <text x="15.82699375" y="16.050996875" size="1.016" layer="122" font="vector" ratio="20" rot="MR0">bot-thoughts.com</text>
 <text x="16.8759875" y="0.954" size="1.27" layer="122" font="vector" ratio="16" rot="MR0">CR1225</text>
 <text x="10.648009375" y="11.303990625" size="1.27" layer="122" font="vector" ratio="16" rot="MR90">ISP</text>
+<text x="5.334" y="0.762" size="1.016" layer="26" font="vector" ratio="12" rot="MR0" align="bottom-center">cc-by-sa</text>
 </plain>
 <libraries>
 <library name="rcl">
@@ -1556,6 +1556,85 @@ We've spent an enormous amount of time creating and checking these footprints an
 </package>
 </packages>
 </library>
+<library name="SparkFun-Retired">
+<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
+In this library you'll find all manner of retired footprints for resistors, capacitors, board names, ICs, etc., that are no longer used in our catalog.&lt;br&gt;&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
+&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt;Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/
+&lt;br&gt;&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="SJ_2S-NO">
+<description>Small solder jumper with no paste layer so it will open after reflow.</description>
+<wire x1="0.8" y1="-1" x2="-0.8" y2="-1" width="0.2032" layer="21"/>
+<wire x1="0.8" y1="1" x2="1" y2="0.7" width="0.2032" layer="21" curve="-90"/>
+<wire x1="-1" y1="0.7" x2="-0.8" y2="1" width="0.2032" layer="21" curve="-90"/>
+<wire x1="-1" y1="-0.7" x2="-0.8" y2="-1" width="0.2032" layer="21" curve="90"/>
+<wire x1="0.8" y1="-1" x2="1" y2="-0.7" width="0.2032" layer="21" curve="90"/>
+<wire x1="-0.8" y1="1" x2="0.8" y2="1" width="0.2032" layer="21"/>
+<smd name="1" x="-0.45" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
+<smd name="2" x="0.45" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
+<text x="-0.908" y="1.27" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-0.908" y="-1.651" size="0.4064" layer="27">&gt;VALUE</text>
+</package>
+</packages>
+</library>
+<library name="bt">
+<description>&lt;b&gt;Miscellaneous parts&lt;/b&gt;
+
+&lt;p&gt;Created by Michael Shimniok &lt;a href="http://www.bot-thoughts.com/"&gt;www.bot-thoughts.com&lt;/a&gt;&lt;/b&gt;</description>
+<packages>
+<package name="BTLOGOM">
+<description>Bot Thoughts Logo</description>
+<circle x="-0.31861875" y="1.810309375" radius="0.3556" width="0.2794" layer="25"/>
+<polygon width="0.254" layer="25">
+<vertex x="1.550975" y="0.39633125"/>
+<vertex x="1.751525" y="0.266665625"/>
+<vertex x="2.298734375" y="0.813875"/>
+<vertex x="1.876540625" y="1.383278125" curve="19.000023"/>
+<vertex x="2.101478125" y="1.972771875"/>
+<vertex x="2.846534375" y="2.102265625"/>
+<vertex x="2.846534375" y="2.901534375"/>
+<vertex x="2.101478125" y="2.980228125" curve="19.000023"/>
+<vertex x="1.876540625" y="3.544321875"/>
+<vertex x="2.324134375" y="4.164525"/>
+<vertex x="1.751525" y="4.711734375"/>
+<vertex x="1.156721875" y="4.289540625" curve="19.000023"/>
+<vertex x="0.592628125" y="4.539878125"/>
+<vertex x="0.488534375" y="5.259534375"/>
+<vertex x="-0.310734375" y="5.259534375"/>
+<vertex x="-0.414828125" y="4.489078125" curve="19.000023"/>
+<vertex x="-0.953521875" y="4.264140625"/>
+<vertex x="-1.624525" y="4.711734375"/>
+<vertex x="-2.146334375" y="4.189925"/>
+<vertex x="-1.698740625" y="3.569721875" curve="19.000023"/>
+<vertex x="-1.949078125" y="3.005628125"/>
+<vertex x="-2.694134375" y="2.926934375"/>
+<vertex x="-2.694134375" y="2.102265625"/>
+<vertex x="-1.974478125" y="1.998171875" curve="19.000023"/>
+<vertex x="-1.724140625" y="1.408678125"/>
+<vertex x="-2.171734375" y="0.839275"/>
+<vertex x="-1.599125" y="0.266665625"/>
+<vertex x="-1.373175" y="0.44713125"/>
+<vertex x="-1.373175" y="2.413" curve="-85"/>
+<vertex x="-0.1524" y="3.8862" curve="-300"/>
+<vertex x="0.3556" y="3.8862"/>
+<vertex x="0.3556" y="3.8608" curve="-85"/>
+<vertex x="1.550975" y="2.413"/>
+</polygon>
+<circle x="0.41798125" y="1.810309375" radius="0.3556" width="0.2794" layer="25"/>
+<polygon width="0.127" layer="25">
+<vertex x="-0.5334" y="0.9906"/>
+<vertex x="0.4826" y="0.9906"/>
+<vertex x="0.2286" y="0.6604"/>
+<vertex x="-0.3302" y="0.6604"/>
+</polygon>
+<wire x1="0.0508" y1="1.7018" x2="0.0508" y2="2.032" width="0.2794" layer="25" curve="-320.797854"/>
+<wire x1="0.0762" y1="2.032" x2="0.0762" y2="1.7018" width="0.2794" layer="25" curve="-320.797854"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1647,6 +1726,9 @@ Please make sure your boards conform to these design rules.</description>
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
@@ -1742,10 +1824,10 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="5.621" y="16.764" size="0.8128" layer="25" font="vector" ratio="10" rot="R180"/>
 </element>
 <element name="R2" library="rcl" package="R0603" value="10K" x="16.891" y="5.08" smashed="yes">
-<attribute name="NAME" x="18.669" y="4.699" size="0.8128" layer="25" font="vector"/>
+<attribute name="NAME" x="18.542" y="4.953" size="0.8128" layer="25" font="vector"/>
 </element>
 <element name="C1" library="rcl" package="C0603" value="0.1uF" x="13.716" y="5.08" smashed="yes" rot="R180">
-<attribute name="NAME" x="10.668" y="4.699" size="0.8128" layer="25" font="vector"/>
+<attribute name="NAME" x="10.795" y="4.826" size="0.8128" layer="25" font="vector"/>
 </element>
 <element name="LED1" library="bt_opto" package="LED5MMRA" value="" x="3.81" y="8.89" smashed="yes">
 <attribute name="VALUE" x="7.0104" y="7.0866" size="1.27" layer="27" ratio="10"/>
@@ -1775,6 +1857,10 @@ Please make sure your boards conform to these design rules.</description>
 <element name="R3" library="rcl" package="R0603" value="100" x="14.224" y="12.827" smashed="yes" rot="R180">
 <attribute name="NAME" x="11.176" y="12.446" size="0.8128" layer="25" font="vector" ratio="10"/>
 </element>
+<element name="JP1" library="SparkFun-Retired" package="SJ_2S-NO" value="pgm" x="5.969" y="13.208" smashed="yes">
+<attribute name="VALUE" x="4.826" y="12.173" size="0.8128" layer="27" font="vector" ratio="10" rot="R90"/>
+</element>
+<element name="U$5" library="bt" package="BTLOGOM" value="BTLOGO-LOGO-MD" x="5.334" y="1.524" rot="MR0"/>
 </elements>
 <signals>
 <signal name="VCC">
@@ -1844,12 +1930,13 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="PB0">
 <contactref element="IC1" pad="5"/>
 <contactref element="J1" pad="4"/>
-<contactref element="R3" pad="2"/>
 <wire x1="8.89" y1="10.16" x2="11.049" y2="10.16" width="0.254" layer="1"/>
 <wire x1="11.049" y1="10.16" x2="11.684" y2="10.795" width="0.254" layer="1"/>
 <wire x1="11.684" y1="10.795" x2="13.383" y2="10.795" width="0.254" layer="1"/>
-<wire x1="13.383" y1="10.795" x2="13.383" y2="12.818" width="0.4064" layer="1"/>
-<wire x1="13.383" y1="12.818" x2="13.374" y2="12.827" width="0.4064" layer="1"/>
+<contactref element="JP1" pad="1"/>
+<wire x1="5.519" y1="13.208" x2="5.519" y2="10.864" width="0.254" layer="1"/>
+<wire x1="5.519" y1="10.864" x2="6.223" y2="10.16" width="0.254" layer="1"/>
+<wire x1="6.223" y1="10.16" x2="8.89" y2="10.16" width="0.254" layer="1"/>
 </signal>
 <signal name="PB1">
 <contactref element="IC1" pad="6"/>
@@ -1919,6 +2006,15 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="C2" pad="2"/>
 <contactref element="R3" pad="1"/>
 <wire x1="15.074" y1="12.827" x2="15.074" y2="14.605" width="0.4064" layer="1"/>
+</signal>
+<signal name="N$1">
+<contactref element="R3" pad="2"/>
+<contactref element="JP1" pad="2"/>
+<wire x1="13.374" y1="12.827" x2="10.922" y2="12.827" width="0.254" layer="1"/>
+<wire x1="10.922" y1="12.827" x2="10.033" y2="13.716" width="0.254" layer="1"/>
+<wire x1="10.033" y1="13.716" x2="7.747" y2="13.716" width="0.254" layer="1"/>
+<wire x1="7.747" y1="13.716" x2="7.239" y2="13.208" width="0.254" layer="1"/>
+<wire x1="7.239" y1="13.208" x2="6.419" y2="13.208" width="0.254" layer="1"/>
 </signal>
 </signals>
 </board>
