@@ -14,6 +14,5 @@ eagle.epf
 *.lss
 *.map
 *.eep
-*.zip
 default
 .svn
