@@ -174,7 +174,7 @@
 <vertex x="6.223" y="3.556"/>
 <vertex x="5.715" y="3.556"/>
 </polygon>
-<text x="7.112" y="0.889" size="1.27" layer="25" font="vector" ratio="10">60.0Hz</text>
+<text x="7.112" y="0.889" size="1.27" layer="25" font="vector" ratio="10">50.0Hz</text>
 <wire x1="5.969" y1="3.937" x2="5.969" y2="2.159" width="0.254" layer="121"/>
 <wire x1="5.789396875" y1="1.725396875" x2="5.969" y2="2.159" width="0.254" layer="121" curve="45"/>
 <wire x1="5.789396875" y1="1.725396875" x2="5.461" y2="1.397" width="0.4064" layer="121"/>
