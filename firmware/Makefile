@@ -19,9 +19,12 @@ CFLAGS   = -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -fun
 LDFLAGS  = $(LIBDIRS) $(LIBS) -lm -Wl,-gc-sections
 
 TARGET=t25
-#AVR Dragon
+#USBasp
 PORT=usb
-PROGRAMMER=dragon_isp
+PROGRAMMER=usbasp
+#AVR Dragon
+#PORT=usb
+#PROGRAMMER=dragon_isp
 #Pololu programmer
 #PORT=/dev/pololu_avrisp
 #PROGRAMMER=avrispv2
