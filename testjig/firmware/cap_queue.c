@@ -3,10 +3,11 @@
 #include "cap_queue.h"
 
 typedef struct {
-  unsigned long start, mid, stop;
-} cap_data
+  unsigned long period;
+  unsigned long on;
+} cap_data;
 
-cap_data cap_queue[MAXQUEUE];
+cap_data cap_q[MAXQUEUE];
 
 uint8_t writein = 0;
 uint8_t readout = 0;
@@ -17,23 +18,25 @@ inline void inc_index(uint8_t i) {
 }
 
 uint8_t cap_data_ready() {
-  return readin != writeout;
+  return writein != readout;
 }
 
-void cap_enqueue(unsigned long start, unsigned long mid, unsigned long stop) {
+void cap_clear_queue() {
+  writein = readout = 0;
+}
+
+void cap_enqueue(unsigned long period, unsigned long on) {
   inc_index(writein);
-  cap_queue[writein].start = start;
-  cap_queue[writein].mid = mid;
-  cap_queue[writein].stop = stop;
+  cap_q[writein].period = period;
+  cap_q[writein].on = on;
 }
 
-uint8_t cap_dequeue(unsigned long *start, unsigned long *mid, unsigned long *stop) {
+uint8_t cap_dequeue(unsigned long *period, unsigned long *on) {
   uint8_t ready = cap_data_ready();
   if (ready) {
     inc_index(readout);
-    *start = cap_queue[readout].start;
-    *mid = cap_queue[readout].mid;
-    *stop = cap_queue[readout].stop;
+    *period = cap_q[readout].period;
+    *on = cap_q[readout].on;
   }
   return ready;
 }

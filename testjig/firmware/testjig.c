@@ -8,6 +8,7 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include <stdlib.h>
+#include "cap.h"
 
 #define DELAY 100
 
@@ -47,10 +48,10 @@ void write2B(unsigned int v) {
 
 size_t write_str(const char *s) {
 	size_t n = 0;
+
 	if (s) {
-		char *t = s;
-		while (t && *t) {
-			write2B(*t++);
+		while (s[n]) {
+			write2B(s[n]);
 			n++;
 		}
 	}
@@ -106,60 +107,64 @@ void clearScreen() {
 	_delay_ms(100);
 }
 
-void init_capture() {
-	// noise cancelling, rising edge, prescaler: 8
-	TCCR1B |= (1<<ICNC1)|(1<<ICES1)|(1<<CS11);
-	// interrupt on input capture edge detect & output compare (timeout)
-	TIMSK1 |= (1<<ICIE1)|(1<<OCIE1A);
-	// Set OCR (timeout) to 0 -- full TCNT range for the initial period.
-	OCR1A = 0;
-
-}
-
-
-ISR(TIM1_CAPT_vect) {
-	unsigned long icr;
-	unsigned long start_time;
-	unsigned long stop_time;
-	uint8_t tccr;
-
-	// immediately save capture register value
-	icr = ICR1;
-
-	// reverse the edge detect, must occur very soon after reading ICR
-	tccr = TCCR1B; // save edge detect setting
-	TCCR1B ^= (1<<ICES1);
-
-	// End/Begin period if we were just looking for rising edge
-	if (tccr & (1 << ICES1)) {
-		// Enqueue the data for computation outside the interrupt handler
-		icp_enq(start_time, stop_time, icr);
-
-		// Start of new pulse/period
-		start_time = icr;
-
-		// Update the timeout based on recent period; add fudge factor
-		OCR1A = icr + icp_period + 100;
-
-	} else {
-		icp_stop_time = icr;		/* Capture falling-edge time */
-	}
-
-	return;
-}
-
-
 
 int main() {
+	//sei();
+
 	USART0_Init(BAUD_9600);
+
+	//cap_init();
+
+	DDRA |= (1<<PA3);
+
 	clearScreen();
+
 	while(1) {
+		print("Testing");
+	}
+
+
+	while(1) {
+		long period = 0;
+		long on = 0;
+		long duty = 0;
+		long freq = 0;
+		long start = 0;
+		long mid = 0;
+		long stop = 0;
+
+		if (cap_deq(&start, &mid, &stop)) {
+			period = (stop > start) ? stop - start : start - stop;
+			on = (mid > start) ? mid - start : start - mid;
+			// Conveniently, 1 tick = 2usec
+			period >>= 1;
+			on >>= 1;
+
+			duty = 100 * on / period;
+			freq = 1000000L / period;
+		}
+
+		PINA |= (1<<PA3);
+
+
 		setPrintPos(0,0);
-		print("Frq: ");
-		print_int(12);
-		setPrintPos(0,1);
 		print("Per: ");
-		print_int(12);
-		_delay_ms(100);
+		print_int(1);
+		print(" us");
+
+		setPrintPos(0,1);
+		print(" On: ");
+		print_int(on);
+		print(" us");
+
+		setPrintPos(0,2);
+		print("Dty: ");
+		print_int(duty);
+
+		setPrintPos(0,3);
+		print("Frq: ");
+		print_int(freq);
+
+		_delay_ms(200);
 	}
 }
