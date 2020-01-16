@@ -2,35 +2,45 @@
 
 PROJECT  = TurntableStrobe
 
-C_SRCS   = $(PROJECT).c 
-#OBJS     = $(PROJECT).o crt1.o
-OBJS     = $(PROJECT).o
-LIBS = 
-LIBDIRS  = 
-INCLUDES = 
+### Timing
+# Requires ckdiv8 being set so F_CPU = f0/8
+# MATCH = 25
+# PRESCALER = 4
+# frequency = 120 or 100 (Hz)
+# PERIOD = F_CPU / PRESCALER / MATCH / frequency
+#F_CPU=10000000UL/8
+F_CPU=14745600UL/8
+#TIMINGFLAGS = -DPERIOD=160 -DONTIME=51 -DMATCH=24 -DPRESCALE=4
+
+MCU      = attiny25
+TARGET   = t25
+
+C_SRCS       = $(PROJECT).c
+OBJS         = $(PROJECT).o
+LIBS         =
+LIBDIRS      =
+INCLUDES     =
 LSS          = $(PROJECT).lss
 FLASH_IMAGE  = $(PROJECT).hex
 EEPROM_IMAGE = $(PROJECT).eep
-SIZEDUMMY = sizedummy
+SIZEDUMMY    = sizedummy
 
-F_CPU    = 1500000UL
-MCU      = attiny25
-CFLAGS   = -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=$(MCU) -DF_CPU=$(F_CPU) -ffunction-sections
+TIMINGFLAGS = -DF_STROBE=$(F_STROBE) -DF_XTAL=$(F_XTAL)
+CFLAGS   = $(TIMINGFLAGS) -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=$(MCU) -DF_CPU=$(F_CPU) -ffunction-sections
 LDFLAGS  = $(LIBDIRS) $(LIBS) -lm -Wl,-gc-sections
 
-TARGET=t25
 #USBasp
-PORT=usb
-PROGRAMMER=usbasp
+#PORT=-P usb
+#PROGRAMMER=-c usbasp
 #AVR Dragon
-#PORT=usb
-#PROGRAMMER=dragon_isp
+#PORT=-P usb
+#PROGRAMMER=-c dragon_isp
 #Pololu programmer
-#PORT=/dev/pololu_avrisp
-#PROGRAMMER=avrispv2
+#PORT=-P /dev/pololu_avrisp
+#PROGRAMMER=-c avrispv2
 #JTAG ICE MkII
-#PORT=usb
-#PROGRAMMER=jtag2isp
+#PORT=-P usb
+#PROGRAMMER=-c jtag2isp
 AVRDUDE_FLAGS=-B 150
 
 # CKDIV8, SPIEN, BOD disabled, Ext Osc 8MHz+
@@ -38,12 +48,21 @@ LFUSE=0x7f
 HFUSE=0xdf
 EFUSE=0xff
 
-# Add inputs and outputs from these tool invocations to the build variables 
+# Add inputs and outputs from these tool invocations to the build variables
 
 RM := rm -rf
 
+.check-env:
+	echo frequency: $(F_STROBE)
+ifndef F_STROBE
+	$(error F_STROBE undefined)
+endif
+ifndef F_XTAL
+	$(error F_XTAL undefined)
+endif
+
 # All Target
-all: $(PROJECT).elf secondary-outputs
+all: .check-env $(PROJECT).elf secondary-outputs
 
 # This is included for AVR Studio 4 compatibility
 $(PROJECT): all
@@ -87,20 +106,19 @@ clean:
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 
 install:
-	avrdude $(AVRDUDE_FLAGS) -p $(TARGET) -c $(PROGRAMMER) -P $(PORT) -v -U flash:w:$(PROJECT).hex -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
-	#avrdude $(AVRDUDE_FLAGS) -p $(TARGET) -c $(PROGRAMMER) -P $(PORT) -v -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
+	avrdude $(AVRDUDE_FLAGS) -p $(TARGET) $(PROGRAMMER) $(PORT) -v -U flash:w:$(PROJECT).hex -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
 
 %.o: %.c
 	@echo 'Building file: $<'
 	avr-gcc $(INCLUDES) $(CFLAGS) -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
-	
+
 ../A2D/libA2D.a:
 	-cd ../A2D && $(MAKE) all
 
 ../USI_I2C/libUSI_I2C.a: ../A2D/libA2D.a
 	-cd ../USI_I2C && $(MAKE) all
-		
+
 .PHONY: all clean dependents
 .SECONDARY:
