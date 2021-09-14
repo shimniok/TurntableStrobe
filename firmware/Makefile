@@ -1,6 +1,8 @@
 #!/bin/sh
 
-PROJECT  = TurntableStrobe
+PROJECT = TurntableStrobe
+
+USAGE = "Specify F_STROBE and F_XTAL -- F_STROBE=50 F_XTAL=10|12|147 -or- F_STROBE=60 F_XTAL=12|147"
 
 ### Timing
 # Requires ckdiv8 being set so F_CPU = f0/8
@@ -9,28 +11,43 @@ PROJECT  = TurntableStrobe
 # frequency = 120 or 100 (Hz)
 # PERIOD = F_CPU / PRESCALER / MATCH / frequency
 #F_CPU=10000000UL/8
-F_CPU=14745600UL/8
+#F_CPU=14745600UL/8
+F_CPU=12000000UL/8
 #TIMINGFLAGS = -DPERIOD=160 -DONTIME=51 -DMATCH=24 -DPRESCALE=4
 
 MCU      = attiny25
 TARGET   = t25
 
-C_SRCS       = $(PROJECT).c
-OBJS         = $(PROJECT).o
+.check-env:
+	@echo strobe = $(F_STROBE) Hz xtal = $(F_XTAL)
+ifndef F_STROBE
+	$(error $(USAGE))
+endif
+ifndef F_XTAL
+	$(error $(USAGE))
+endif
+
+BUILD_DIR    = build
+OUT_DIR      = $(BUILD_DIR)/$(F_STROBE)/$(F_XTAL)
+C_SRCS       = $(NAME).c
+OBJ         = $(OUT_DIR)/$(PROJECT).o
 LIBS         =
 LIBDIRS      =
 INCLUDES     =
-LSS          = $(PROJECT).lss
-FLASH_IMAGE  = $(PROJECT).hex
-EEPROM_IMAGE = $(PROJECT).eep
+MAP          = $(OUT_DIR)/$(PROJECT).map
+ELF          = $(OUT_DIR)/$(PROJECT).elf
+LSS          = $(OUT_DIR)/$(PROJECT).lss
+FLASH_IMAGE  = $(OUT_DIR)/$(PROJECT).hex
+EEPROM_IMAGE = $(OUT_DIR)/$(PROJECT).eep
 SIZEDUMMY    = sizedummy
 
 TIMINGFLAGS = -DF_STROBE=$(F_STROBE) -DF_XTAL=$(F_XTAL)
 CFLAGS   = $(TIMINGFLAGS) -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=$(MCU) -DF_CPU=$(F_CPU) -ffunction-sections
 LDFLAGS  = $(LIBDIRS) $(LIBS) -lm -Wl,-gc-sections
 
-#USBasp
-#PORT=-P usb
+#Select your programmer
+USBasp
+PORT=-P usb
 #PROGRAMMER=-c usbasp
 #AVR Dragon
 #PORT=-P usb
@@ -52,73 +69,68 @@ EFUSE=0xff
 
 RM := rm -rf
 
-.check-env:
-	echo frequency: $(F_STROBE)
-ifndef F_STROBE
-	$(error F_STROBE undefined)
-endif
-ifndef F_XTAL
-	$(error F_XTAL undefined)
-endif
-
 # All Target
-all: .check-env $(PROJECT).elf secondary-outputs
+all: .check-env $(OUT_DIR) $(ELF) secondary-outputs
+
+# Output directory
+$(OUT_DIR):
+	mkdir -p $(OUT_DIR)
 
 # This is included for AVR Studio 4 compatibility
 $(PROJECT): all
 
 # Tool invocations
-$(PROJECT).elf: $(OBJS) $(LIBS)
+$(ELF): $(OBJ) $(LIBS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,$(PROJECT).map $(LIBDIRS) -mmcu=$(MCU) -o "$(PROJECT).elf" $(OBJS) $(LDFLAGS)
+	avr-gcc -Wl,-Map,$(MAP) $(LIBDIRS) -mmcu=$(MCU) -o "$(ELF)" $(OBJ) $(LDFLAGS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-$(PROJECT).lss: $(PROJECT).elf
+$(LSS): $(ELF)
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S $(PROJECT).elf  >"$(PROJECT).lss"
+	-avr-objdump -h -S $(ELF)  >"$(LSS)"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-$(PROJECT).hex: $(PROJECT).elf
+$(FLASH_IMAGE): $(ELF)
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -O ihex $(PROJECT).elf  "$(PROJECT).hex"
+	-avr-objcopy -R .eeprom -O ihex $(ELF)  "$(FLASH_IMAGE)"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-$(PROJECT).eep: $(PROJECT).elf
+$(EEPROM_IMAGE): $(ELF)
 	@echo 'Create eeprom image (ihex format)'
-	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex $(PROJECT).elf  "$(PROJECT).eep"
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex $(ELF)  "$(EEPROM_IMAGE)"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-sizedummy: $(PROJECT).elf
+sizedummy: $(ELF)
 	@echo 'Invoking: Print Size'
-	-avr-size --format=berkeley -t $(PROJECT).elf
+	-avr-size --format=berkeley -t $(ELF)
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS) $(EEPROM_IMAGE) $(FLASH_IMAGE) $(ELFS) $(LSS) $(SIZEDUMMY) $(PROJECT).elf
+	-$(RM) $(BUILD_DIR)
 
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 
 install:
-	avrdude $(AVRDUDE_FLAGS) -p $(TARGET) $(PROGRAMMER) $(PORT) -v -U flash:w:$(PROJECT).hex -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
+	avrdude $(AVRDUDE_FLAGS) -p $(TARGET) $(PROGRAMMER) $(PORT) -v -U flash:w:$(FLASH_IMAGE) -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
 
-%.o: %.c
+$(OUT_DIR)/%.o: %.c
 	@echo 'Building file: $<'
 	avr-gcc $(INCLUDES) $(CFLAGS) -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
-../A2D/libA2D.a:
-	-cd ../A2D && $(MAKE) all
+#../A2D/libA2D.a:
+	#-cd ../A2D && $(MAKE) all
 
-../USI_I2C/libUSI_I2C.a: ../A2D/libA2D.a
-	-cd ../USI_I2C && $(MAKE) all
+#../USI_I2C/libUSI_I2C.a: ../A2D/libA2D.a
+#	-cd ../USI_I2C && $(MAKE) all
 
 .PHONY: all clean dependents
 .SECONDARY:
