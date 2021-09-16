@@ -9064,68 +9064,75 @@ LETTER landscape</description>
 <library name="bt_diode">
 <description>Diodes, rectifiers, regulators</description>
 <packages>
-<package name="SOD-323">
-<wire x1="-0.9" y1="0.65" x2="-0.5" y2="0.65" width="0.2032" layer="21"/>
-<wire x1="-0.5" y1="0.65" x2="0.9" y2="0.65" width="0.2032" layer="21"/>
-<wire x1="-0.9" y1="-0.65" x2="-0.5" y2="-0.65" width="0.2032" layer="21"/>
-<wire x1="-0.5" y1="-0.65" x2="0.9" y2="-0.65" width="0.2032" layer="21"/>
-<wire x1="-0.5" y1="0.65" x2="-0.5" y2="-0.65" width="0.2032" layer="21"/>
-<smd name="C" x="-1.15" y="0" dx="0.9" dy="0.9" layer="1"/>
-<smd name="A" x="1.15" y="0" dx="0.9" dy="0.9" layer="1"/>
-<text x="-0.889" y="1.016" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.016" y="-1.397" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
-<package name="SOD123FL">
-<description>SOD-123FL CASE 498-01 ISSUE A&lt;br&gt;</description>
-<wire x1="-1.35" y1="0.8" x2="1.35" y2="0.8" width="0.2032" layer="51"/>
-<wire x1="1.35" y1="0.8" x2="1.35" y2="-0.8" width="0.2032" layer="51"/>
-<wire x1="1.35" y1="-0.8" x2="-1.35" y2="-0.8" width="0.2032" layer="51"/>
-<wire x1="-1.35" y1="-0.8" x2="-1.35" y2="0.8" width="0.2032" layer="51"/>
-<wire x1="-0.85" y1="0.8" x2="0.85" y2="0.8" width="0.2032" layer="21"/>
-<wire x1="0.85" y1="-0.8" x2="-0.85" y2="-0.8" width="0.2032" layer="21"/>
-<smd name="A" x="2.025" y="0" dx="2" dy="1.8" layer="1"/>
-<smd name="C" x="-2.025" y="0" dx="2" dy="1.8" layer="1" rot="R180"/>
-<text x="-2" y="1" size="1.27" layer="25">&gt;NAME</text>
-<text x="-2" y="-2.5" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-1.8" y1="-0.55" x2="-1.425" y2="0.55" layer="51"/>
-<rectangle x1="1.425" y1="-0.55" x2="1.8" y2="0.55" layer="51" rot="R180"/>
-<rectangle x1="-0.95" y1="-0.775" x2="-0.35" y2="0.8" layer="21"/>
+<package name="SOT-563">
+<description>&lt;b&gt;SOT-563&lt;/b&gt;
+
+&lt;p&gt;&lt;a href="https://blog.mbedded.ninja/pcb-design/component-packages/sot-563-component-package/"&gt;Source&lt;/a&gt;</description>
+<smd name="1" x="-0.675" y="0.5" dx="0.3" dy="0.45" layer="1" rot="R90"/>
+<smd name="2" x="-0.675" y="0" dx="0.3" dy="0.45" layer="1" rot="R90"/>
+<smd name="3" x="-0.675" y="-0.5" dx="0.3" dy="0.45" layer="1" rot="R90"/>
+<smd name="4" x="0.675" y="-0.5" dx="0.3" dy="0.45" layer="1" rot="R90"/>
+<smd name="5" x="0.675" y="0" dx="0.3" dy="0.45" layer="1" rot="R90"/>
+<smd name="6" x="0.675" y="0.5" dx="0.3" dy="0.45" layer="1" rot="R90"/>
+<polygon width="0.127" layer="21">
+<vertex x="-0.3" y="0.6"/>
+<vertex x="-0.3" y="0.4"/>
+<vertex x="-0.1" y="0.6"/>
+</polygon>
+<text x="0" y="0.762" size="0.6096" layer="21" font="vector" align="bottom-center">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
-<symbol name="DIODE">
+<symbol name="SCHOTTKY">
 <wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
 <wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.905" y1="1.27" x2="1.27" y2="1.27" width="0.254" layer="94"/>
 <wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="0" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
 <wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.905" y1="1.27" x2="1.905" y2="1.016" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.27" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0.635" y1="-1.016" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
 <text x="-2.286" y="1.905" size="1.778" layer="95">&gt;NAME</text>
 <text x="-2.286" y="-3.429" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="A" x="-3.81" y="0" visible="off" length="short" direction="pas"/>
-<pin name="C" x="3.81" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+<pin name="A" x="-5.08" y="0" visible="off" length="short" direction="pas"/>
+<pin name="C" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+<wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="0" x2="1.27" y2="0" width="0.1524" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="DIODE" prefix="D">
-<description>&lt;b&gt;Diode&lt;/b&gt;
-&lt;p&gt;Collection of generic diodes in various packages&lt;/b&gt;</description>
+<deviceset name="BAT54V" prefix="D">
+<description>&lt;b&gt;BAT54V - SCHOTTKY BARRIER DIODE ARRAY&lt;/b&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Low Forward Voltage Drop&lt;/li&gt;
+&lt;li&gt;Fast Switching&lt;/li&gt;
+&lt;li&gt;Ultra-Small Surface Mount Package&lt;/li&gt;
+&lt;li&gt;PN Junction Guard Ring for Transient and ESD Protection&lt;/li&gt;
+&lt;li&gt;Totally Lead-Free &amp; Fully RoHS Compliant (Notes 1 &amp; 2)&lt;/li&gt;
+&lt;li&gt;Halogen and Antimony Free. "Green” Device (Note 3)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href="https://www.diodes.com/assets/Datasheets/ds30560.pdf"&gt;datasheet.pdf&lt;/a&gt;
+
+&lt;p&gt;V&lt;sub&gt;RRM&lt;/sub&gt; = V&lt;sub&gt;RWM&lt;/sub&gt; = V&lt;sub&gt;R&lt;/sub&gt; = 30V
+&lt;p&gt;I&lt;sub&gt;F&lt;/sub&gt; = 200mA
+&lt;p&gt;I&lt;sub&gt;FRM&lt;/sub&gt; = 300mA
+&lt;p&gt;I&lt;sub&gt;FSM&lt;/sub&gt; = 600mA (@ t &amp;lt; 1.0s)
+&lt;p&gt;P&lt;sub&gt;D&lt;/sub&gt; = 150mW</description>
 <gates>
-<gate name="D1" symbol="DIODE" x="0" y="0"/>
+<gate name="G$1" symbol="SCHOTTKY" x="0" y="10.16"/>
+<gate name="G$2" symbol="SCHOTTKY" x="0" y="-10.16"/>
 </gates>
 <devices>
-<device name="_SOD323" package="SOD-323">
+<device name="" package="SOT-563">
 <connects>
-<connect gate="D1" pin="A" pad="A"/>
-<connect gate="D1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="_SOD123FL" package="SOD123FL">
-<connects>
-<connect gate="D1" pin="A" pad="A"/>
-<connect gate="D1" pin="C" pad="C"/>
+<connect gate="G$1" pin="A" pad="1"/>
+<connect gate="G$1" pin="C" pad="6"/>
+<connect gate="G$2" pin="A" pad="3"/>
+<connect gate="G$2" pin="C" pad="4"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -9327,13 +9334,11 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="FRAME1" library="bt" deviceset="LETTER_L" device=""/>
 <part name="C2" library="rcl" deviceset="C-US" device="C0603" value="10uF"/>
 <part name="C3" library="rcl" deviceset="C-US" device="C0603" value="10uF"/>
-<part name="D1" library="bt_diode" deviceset="DIODE" device="_SOD323" value="1N4148"/>
-<part name="D2" library="bt_diode" deviceset="DIODE" device="_SOD323" value="1N4148"/>
 <part name="GND4" library="mes" deviceset="GND" device=""/>
 <part name="U$4" library="mes" deviceset="VCC" device="" value=""/>
-<part name="R3" library="rcl" deviceset="R-US_" device="R0603" value="100"/>
 <part name="JP1" library="SparkFun-Retired" deviceset="JUMPER-2" device="SMD-NO" value="pgm"/>
 <part name="U$5" library="bt" deviceset="BTLOGO" device="-LOGO-MD"/>
+<part name="D3" library="bt_diode" deviceset="BAT54V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9344,7 +9349,6 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <wire x1="228.6" y1="91.44" x2="185.42" y2="91.44" width="0.1524" layer="97" style="shortdash"/>
 <wire x1="185.42" y1="91.44" x2="185.42" y2="121.92" width="0.1524" layer="97" style="shortdash"/>
 <text x="187.96" y="116.84" size="1.778" layer="97">~4V</text>
-<text x="173.99" y="98.044" size="1.778" layer="97">AVR910</text>
 <text x="150.876" y="17.78" size="3.81" layer="94">TURNTABLE STROBE</text>
 <text x="231.14" y="17.78" size="3.81" layer="94">R0.3</text>
 <text x="162.052" y="87.63" size="1.778" layer="97">to program, unsolder pgm jumper</text>
@@ -9373,14 +9377,13 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
 <instance part="FRAME1" gate="G$2" x="147.32" y="2.54"/>
 <instance part="C2" gate="G$1" x="213.36" y="111.76" rot="MR0"/>
-<instance part="C3" gate="G$1" x="198.12" y="111.76" rot="MR0"/>
-<instance part="D1" gate="D1" x="220.98" y="116.84" rot="MR0"/>
-<instance part="D2" gate="D1" x="205.74" y="116.84" rot="MR0"/>
-<instance part="GND4" gate="1" x="198.12" y="101.6" rot="MR0"/>
-<instance part="U$4" gate="G$1" x="226.06" y="139.7" rot="MR0"/>
-<instance part="R3" gate="G$1" x="177.8" y="93.98" rot="MR0"/>
+<instance part="C3" gate="G$1" x="195.58" y="111.76" rot="MR0"/>
+<instance part="GND4" gate="1" x="195.58" y="101.6" rot="MR0"/>
+<instance part="U$4" gate="G$1" x="231.14" y="139.7" rot="MR0"/>
 <instance part="JP1" gate="A" x="165.1" y="96.52" rot="MR270"/>
 <instance part="U$5" gate="G$1" x="2.54" y="2.54"/>
+<instance part="D3" gate="G$1" x="205.74" y="116.84" rot="R180"/>
+<instance part="D3" gate="G$2" x="220.98" y="116.84" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -9409,10 +9412,10 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <wire x1="152.4" y1="137.16" x2="152.4" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="224.79" y1="116.84" x2="226.06" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="226.06" y1="116.84" x2="226.06" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="226.06" y1="116.84" x2="231.14" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="231.14" y1="116.84" x2="231.14" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="U$4" gate="G$1" pin="VCC"/>
-<pinref part="D1" gate="D1" pin="A"/>
+<pinref part="D3" gate="G$2" pin="A"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -9451,7 +9454,7 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <segment>
 <pinref part="C3" gate="G$1" pin="2"/>
 <pinref part="GND4" gate="1" pin="GND"/>
-<wire x1="198.12" y1="104.14" x2="198.12" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="104.14" x2="195.58" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PB5" class="0">
@@ -9553,38 +9556,31 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <net name="VHI" class="0">
 <segment>
 <pinref part="C3" gate="G$1" pin="1"/>
-<wire x1="198.12" y1="114.3" x2="198.12" y2="116.84" width="0.1524" layer="91"/>
-<pinref part="D2" gate="D1" pin="C"/>
-<wire x1="201.93" y1="116.84" x2="198.12" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="114.3" x2="195.58" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="198.12" y1="116.84" x2="182.88" y2="116.84" width="0.1524" layer="91"/>
-<junction x="198.12" y="116.84"/>
+<wire x1="200.66" y1="116.84" x2="195.58" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="116.84" x2="182.88" y2="116.84" width="0.1524" layer="91"/>
+<junction x="195.58" y="116.84"/>
+<pinref part="D3" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="C2" gate="G$1" pin="1"/>
 <wire x1="213.36" y1="114.3" x2="213.36" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="116.84" x2="217.17" y2="116.84" width="0.1524" layer="91"/>
-<pinref part="D1" gate="D1" pin="C"/>
-<pinref part="D2" gate="D1" pin="A"/>
-<wire x1="209.55" y1="116.84" x2="213.36" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="116.84" x2="215.9" y2="116.84" width="0.1524" layer="91"/>
 <junction x="213.36" y="116.84"/>
+<pinref part="D3" gate="G$1" pin="A"/>
+<wire x1="210.82" y1="116.84" x2="213.36" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="D3" gate="G$2" pin="C"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="213.36" y1="106.68" x2="213.36" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="182.88" y1="93.98" x2="213.36" y2="93.98" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="167.64" y1="93.98" x2="213.36" y2="93.98" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="2"/>
-<wire x1="167.64" y1="93.98" x2="172.72" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
