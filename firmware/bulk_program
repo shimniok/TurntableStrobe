@@ -1,16 +1,15 @@
 #!/bin/bash
 
-not_done=1
+echo -n "Strobe Frequency? (50|60): "
+read fs
 
-while [ "$not_done" == '1' ]
+echo -n "Crystal Frequency? (10|12|147): "
+read fx
+
+while [ '1' == '1' ]
 do
-    echo -n "Program another? [Y/n] "
+    echo "[ENTER] to program, CTRL/C to quit"
     read x
-    if [ "$x" == 'n' ]
-    then
-        not_done=0
-    else
-        echo "Programming..."
-        make install
-    fi
+    echo "Programming..."
+    make install F_STROBE=${fs} F_XTAL=${fx}
 done
