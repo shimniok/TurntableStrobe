@@ -46,16 +46,16 @@ CFLAGS   = $(TIMINGFLAGS) -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funs
 LDFLAGS  = $(LIBDIRS) $(LIBS) -lm -Wl,-gc-sections
 
 #Select your programmer
-#USBasp
+##USBasp
 PORT=-P usb
 #PROGRAMMER=-c usbasp
-#AVR Dragon
+##AVR Dragon
 #PORT=-P usb
 #PROGRAMMER=-c dragon_isp
-#Pololu programmer
+##Pololu programmer
 #PORT=-P /dev/pololu_avrisp
 #PROGRAMMER=-c avrispv2
-#JTAG ICE MkII
+##JTAG ICE MkII
 #PORT=-P usb
 #PROGRAMMER=-c jtag2isp
 AVRDUDE_FLAGS=-B 150
