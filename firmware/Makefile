@@ -46,7 +46,7 @@ CFLAGS   = $(TIMINGFLAGS) -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funs
 LDFLAGS  = $(LIBDIRS) $(LIBS) -lm -Wl,-gc-sections
 
 #Select your programmer
-USBasp
+# USBasp
 PORT=-P usb
 #PROGRAMMER=-c usbasp
 #AVR Dragon
@@ -117,7 +117,7 @@ clean:
 
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 
-install:
+install: .check-env $(FLASH_IMAGE)
 	avrdude $(AVRDUDE_FLAGS) -p $(TARGET) $(PROGRAMMER) $(PORT) -v -U flash:w:$(FLASH_IMAGE) -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
 
 $(OUT_DIR)/%.o: %.c
