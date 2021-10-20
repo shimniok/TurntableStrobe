@@ -78,17 +78,16 @@
  */
 inline void led(const uint8_t on) {
 	if (on) {
-		PORTB &= ~(1<<LED);	// ON
+		DDRB |= (1<<LED);    // Make output
 	} else {
-		PORTB |= (1<<LED);	// OFF
+		DDRB &= ~(1<<LED); // Make input (Hi-Z)
 	}
 }
 
 int main() {
 	// Initialization
-	DDRB |= (1<<LED)|(1<<PUMP);		// Enable pump and led pins for output
-	PORTB &= ~(1<<LED); 			// Turn off the LED to start with
-	PORTB &= ~(1<<PUMP);			// Turn off the pump to start with
+	PORTB &= ~(1<<LED); 			// Turn off the LED
+	led(0);
 
 	TCCR1 |= (1<<PWM1A)|			// PWM using OCR1A to count and OCR1C to match;
 			 (1<<CTC1)|				// Clear timer on compare match;
@@ -112,7 +111,7 @@ int main() {
 ISR(TIM1_OVF_vect) {
 	static uint8_t count = 0;
 
-	PINB |= (1<<PUMP); // Toggle charge pump line
+//	PINB |= (1<<PUMP); // Toggle charge pump line
 
 	count++;
 	if (count >= PERIOD) count = 0;

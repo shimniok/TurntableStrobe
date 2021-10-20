@@ -15,8 +15,8 @@ USAGE = "Specify F_STROBE and F_XTAL -- F_STROBE=50 F_XTAL=10|12|147 -or- F_STRO
 F_CPU=12000000UL/8
 #TIMINGFLAGS = -DPERIOD=160 -DONTIME=51 -DMATCH=24 -DPRESCALE=4
 
-MCU      = attiny25
-TARGET   = t25
+MCU      = attiny85
+TARGET   = t85
 
 .check-env:
 	@echo strobe = $(F_STROBE) Hz xtal = $(F_XTAL)
@@ -120,7 +120,7 @@ secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 install: .check-env $(FLASH_IMAGE)
 	avrdude $(AVRDUDE_FLAGS) -p $(TARGET) $(PROGRAMMER) $(PORT) -v -U flash:w:$(FLASH_IMAGE) -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
 
-$(OUT_DIR)/%.o: %.c
+$(OUT_DIR)/%.o: %.c $(OUT_DIR)
 	@echo 'Building file: $<'
 	avr-gcc $(INCLUDES) $(CFLAGS) -c -o "$@" "$<"
 	@echo 'Finished building: $<'
