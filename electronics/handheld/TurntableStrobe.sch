@@ -8486,31 +8486,6 @@ Various packages</description>
 
 &lt;p&gt;Created by Michael Shimniok &lt;a href="http://www.bot-thoughts.com/"&gt;www.bot-thoughts.com&lt;/a&gt;&lt;/b&gt;</description>
 <packages>
-<package name="BTLOGOL">
-<description>&lt;b&gt;Bot Thoughts logo&lt;/b&gt;</description>
-<wire x1="2.54" y1="-2.286" x2="2.54" y2="0.1946" width="0.3048" layer="21"/>
-<wire x1="2.54" y1="0.1946" x2="-0.3134" y2="3.683" width="0.3048" layer="21" curve="90"/>
-<wire x1="-0.3134" y1="3.683" x2="-3.302" y2="-0.0676" width="0.3048" layer="21" curve="90"/>
-<wire x1="-3.302" y1="-0.0676" x2="-3.302" y2="-2.286" width="0.3048" layer="21"/>
-<wire x1="-3.302" y1="-2.286" x2="2.54" y2="-2.286" width="0.3048" layer="21"/>
-<wire x1="-1.524" y1="-0.254" x2="1.651" y2="-0.762" width="0.3048" layer="21"/>
-<wire x1="1.651" y1="-0.762" x2="1.651" y2="-1.397" width="0.3048" layer="21"/>
-<wire x1="1.651" y1="-1.397" x2="-1.016" y2="-1.397" width="0.3048" layer="21"/>
-<wire x1="-1.016" y1="-1.397" x2="-1.524" y2="-0.254" width="0.3048" layer="21"/>
-<wire x1="-4.953" y1="4.953" x2="-1.651" y2="7.239" width="0.3048" layer="21" curve="121.03633"/>
-<wire x1="-1.651" y1="7.239" x2="2.54" y2="6.731" width="0.3048" layer="21" curve="121.03633"/>
-<wire x1="-5.842" y1="1.27" x2="-4.953" y2="4.953" width="0.3048" layer="21" curve="121.03633"/>
-<wire x1="2.54" y1="6.731" x2="4.699" y2="3.683" width="0.3048" layer="21" curve="121.070523"/>
-<wire x1="4.699" y1="3.683" x2="4.953" y2="0.508" width="0.3048" layer="21" curve="121.0418"/>
-<wire x1="-3.937" y1="-1.143" x2="-5.842" y2="1.27" width="0.3048" layer="21" curve="121.043528"/>
-<wire x1="4.953" y1="0.508" x2="3.048" y2="-1.27" width="0.3048" layer="21" curve="121.054565"/>
-<wire x1="-0.254" y1="3.683" x2="-0.254" y2="4.191" width="0.3048" layer="21"/>
-<circle x="-1.143" y="1.524" radius="0.1778" width="0.3048" layer="21"/>
-<circle x="0.762" y="1.143" radius="0.1778" width="0.3048" layer="21"/>
-<circle x="-0.762" y="1.143" radius="1.016" width="0.3048" layer="21"/>
-<circle x="1.016" y="0.889" radius="0.762" width="0.3048" layer="21"/>
-<circle x="-0.254" y="4.572" radius="0.3048" width="0.6096" layer="21"/>
-</package>
 <package name="BTLOGOM">
 <description>Bot Thoughts Logo</description>
 <circle x="-0.31861875" y="1.810309375" radius="0.3556" width="0.2794" layer="25"/>
@@ -8558,8 +8533,54 @@ Various packages</description>
 </polygon>
 <wire x1="0.0508" y1="1.7018" x2="0.0508" y2="2.032" width="0.2794" layer="25" curve="-320.797854"/>
 <wire x1="0.0762" y1="2.032" x2="0.0762" y2="1.7018" width="0.2794" layer="25" curve="-320.797854"/>
-<text x="0" y="-2.032" size="1.016" layer="21" font="vector" ratio="12" align="bottom-center">cc-by-sa</text>
-<text x="0" y="-0.635" size="0.8128" layer="21" font="vector" ratio="12" align="bottom-center">bot-thoughts.com</text>
+</package>
+<package name="BTLOGOS">
+<description>Bot Thoughts Logo</description>
+<circle x="-0.191171875" y="1.086184375" radius="0.213359375" width="0.167640625" layer="25"/>
+<polygon width="0.1524" layer="25">
+<vertex x="0.930584375" y="0.2378"/>
+<vertex x="1.050915625" y="0.16"/>
+<vertex x="1.379240625" y="0.488325"/>
+<vertex x="1.125925" y="0.829965625" curve="19.000023"/>
+<vertex x="1.2608875" y="1.1836625"/>
+<vertex x="1.707921875" y="1.261359375"/>
+<vertex x="1.707921875" y="1.740921875"/>
+<vertex x="1.2608875" y="1.7881375" curve="19.000023"/>
+<vertex x="1.125925" y="2.12659375"/>
+<vertex x="1.39448125" y="2.498715625"/>
+<vertex x="1.050915625" y="2.827040625"/>
+<vertex x="0.694034375" y="2.573725" curve="19.000023"/>
+<vertex x="0.355578125" y="2.723928125"/>
+<vertex x="0.293121875" y="3.155721875"/>
+<vertex x="-0.186440625" y="3.155721875"/>
+<vertex x="-0.248896875" y="2.693446875" curve="19.000023"/>
+<vertex x="-0.5721125" y="2.558484375"/>
+<vertex x="-0.974715625" y="2.827040625"/>
+<vertex x="-1.2878" y="2.51395625"/>
+<vertex x="-1.01924375" y="2.141834375" curve="19.000023"/>
+<vertex x="-1.169446875" y="1.803378125"/>
+<vertex x="-1.61648125" y="1.756159375"/>
+<vertex x="-1.61648125" y="1.261359375"/>
+<vertex x="-1.1846875" y="1.198903125" curve="19.000023"/>
+<vertex x="-1.034484375" y="0.84520625"/>
+<vertex x="-1.303040625" y="0.503565625"/>
+<vertex x="-0.959475" y="0.16"/>
+<vertex x="-0.82390625" y="0.268278125"/>
+<vertex x="-0.82390625" y="1.4478" curve="-85"/>
+<vertex x="-0.091440625" y="2.33171875" curve="-300"/>
+<vertex x="0.213359375" y="2.33171875"/>
+<vertex x="0.213359375" y="2.31648125" curve="-85"/>
+<vertex x="0.930584375" y="1.4478"/>
+</polygon>
+<circle x="0.2507875" y="1.086184375" radius="0.213359375" width="0.167640625" layer="25"/>
+<polygon width="0.0762" layer="25">
+<vertex x="-0.320040625" y="0.594359375"/>
+<vertex x="0.289559375" y="0.594359375"/>
+<vertex x="0.137159375" y="0.396240625"/>
+<vertex x="-0.19811875" y="0.396240625"/>
+</polygon>
+<wire x1="0.03048125" y1="1.02108125" x2="0.03048125" y2="1.2192" width="0.167640625" layer="25" curve="-320.797854"/>
+<wire x1="0.04571875" y1="1.2192" x2="0.04571875" y2="1.02108125" width="0.167640625" layer="25" curve="-320.797854"/>
 </package>
 </packages>
 <symbols>
@@ -9158,12 +9179,12 @@ LETTER landscape</description>
 <gate name="G$1" symbol="BTLOGO" x="0" y="0"/>
 </gates>
 <devices>
-<device name="-LOGO-LG" package="BTLOGOL">
+<device name="-LOGO-MD" package="BTLOGOM">
 <technologies>
 <technology name=""/>
 </technologies>
 </device>
-<device name="-LOGO-MD" package="BTLOGOM">
+<device name="-LOGO-SM" package="BTLOGOS">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -9572,11 +9593,15 @@ Used as a test point connection for pogo pins or other debugging tools.
 <part name="FRAME1" library="bt" deviceset="LETTER_L" device=""/>
 <part name="GND4" library="mes" deviceset="GND" device=""/>
 <part name="U$4" library="mes" deviceset="VCC" device="" value=""/>
+<<<<<<< HEAD
 <part name="U$5" library="bt" deviceset="BTLOGO" device="-LOGO-MD"/>
 <<<<<<< HEAD
 <part name="TP1" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X5" value="VCC"/>
 <part name="TP2" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X5" value="LED"/>
 =======
+=======
+<part name="U$5" library="bt" deviceset="BTLOGO" device="-LOGO-SM" value="BTLOGO-LOGO-SM"/>
+>>>>>>> updated sch with todo items, fixed brd silk
 <part name="U2" library="bt_regulator" deviceset="LM2665" device=""/>
 <part name="C3" library="rcl" deviceset="C-US" device="C0603" value="10uF"/>
 <part name="GND5" library="mes" deviceset="GND" device=""/>
@@ -9620,6 +9645,9 @@ Used as a test point connection for pogo pins or other debugging tools.
 <text x="157.48" y="73.66" size="1.778" layer="97">~6V</text>
 <text x="150.876" y="17.78" size="3.81" layer="94">TURNTABLE STROBE</text>
 <text x="231.14" y="17.78" size="3.81" layer="94">R0.3</text>
+<text x="208.28" y="63.5" size="1.778" layer="90">Q: Can 47uF capacitors be used?</text>
+<text x="195.58" y="88.9" size="1.778" layer="90">Q: Does a large supply cap help?</text>
+<text x="73.66" y="71.12" size="1.778" layer="90">Q: Is it unsafe to drive pin directly?</text>
 </plain>
 <instances>
 <instance part="R1" gate="G$1" x="137.16" y="73.66" rot="MR0"/>
