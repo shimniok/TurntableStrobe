@@ -46,7 +46,7 @@ CFLAGS   = $(TIMINGFLAGS) -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funs
 LDFLAGS  = $(LIBDIRS) $(LIBS) -lm -Wl,-gc-sections
 
 #Select your programmer
-# USBasp
+#USBasp
 PORT=-P usb
 #PROGRAMMER=-c usbasp
 #AVR Dragon
