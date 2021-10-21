@@ -177,26 +177,7 @@
 <vertex x="6.223" y="3.556"/>
 <vertex x="5.715" y="3.556"/>
 </polygon>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<text x="7.112" y="0.889" size="1.27" layer="25" font="vector" ratio="10">50Hz60Hz</text>
-=======
-<text x="7.112" y="0.889" size="1.27" layer="25" font="vector" ratio="10">50Hz</text>
->>>>>>> replace charge pump with ic
-=======
-<text x="7.112" y="0.889" size="1.27" layer="25" font="vector" ratio="10">60Hz</text>
->>>>>>> updated sch with todo items, fixed brd silk
-=======
 <text x="7.112" y="0.889" size="1.27" layer="25" font="vector" ratio="10">60Hz 50Hz</text>
->>>>>>> updated silkscreen
-=======
-<text x="7.112" y="0.889" size="1.27" layer="25" font="vector" ratio="10">60Hz 50Hz</text>
-=======
-<text x="7.112" y="0.889" size="1.27" layer="25" font="vector" ratio="10">50Hz60Hz</text>
->>>>>>> Prototype LM2665 charge pump
->>>>>>> Prototype LM2665 charge pump
 <wire x1="5.969" y1="3.937" x2="5.969" y2="2.159" width="0.254" layer="121"/>
 <wire x1="5.789396875" y1="1.725396875" x2="5.969" y2="2.159" width="0.254" layer="121" curve="45"/>
 <wire x1="5.789396875" y1="1.725396875" x2="5.461" y2="1.397" width="0.4064" layer="121"/>
@@ -1695,34 +1676,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 </package>
 </packages>
 </library>
-<library name="SparkFun-Connectors">
-<description>&lt;h3&gt;SparkFun Connectors&lt;/h3&gt;
-This library contains electrically-functional connectors. 
-&lt;br&gt;
-&lt;br&gt;
-We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity for a given componet or application. 
-&lt;br&gt;
-&lt;br&gt;If you enjoy using this library, please buy one of our products at &lt;a href=" www.sparkfun.com"&gt;SparkFun.com&lt;/a&gt;.
-&lt;br&gt;
-&lt;br&gt;
-&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
-&lt;br&gt;
-&lt;br&gt;
-You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
-<packages>
-<package name="PAD.03X.05">
-<description>&lt;h3&gt;Electrically Conductive Pad 0.05" Circle&lt;/h3&gt;
-Used as a test point connection for pogo pins or other debugging tools. 
-&lt;p&gt;Specifications:
-&lt;li&gt;Area: 0.05" x 0.05"&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;TEST_POINT&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<smd name="P$1" x="0" y="0" dx="1.27" dy="1.27" layer="1" roundness="100" cream="no"/>
-</package>
-</packages>
-</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1908,22 +1861,8 @@ Please make sure your boards conform to these design rules.</description>
 </pass>
 </autorouter>
 <elements>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<element name="R1" library="rcl" package="R0603" value="1K" x="7.112" y="16.383" smashed="yes" rot="R180">
-<attribute name="NAME" x="6.891" y="15.748" size="0.8128" layer="25" font="vector" ratio="10" rot="R180"/>
-=======
 <element name="R1" library="rcl" package="R0603" value="1K" x="4.191" y="15.367" smashed="yes" rot="R270">
 <attribute name="NAME" x="4.351" y="13.335" size="0.8128" layer="25" font="vector" ratio="10" rot="R180" align="center"/>
->>>>>>> replace charge pump with ic
-=======
-<element name="R1" library="rcl" package="R0603" value="1K" x="4.191" y="15.367" smashed="yes" rot="R270">
-<attribute name="NAME" x="4.351" y="13.335" size="0.8128" layer="25" font="vector" ratio="10" rot="R180" align="center"/>
-=======
-<element name="R1" library="rcl" package="R0603" value="1K" x="7.112" y="16.383" smashed="yes" rot="R180">
-<attribute name="NAME" x="6.891" y="15.748" size="0.8128" layer="25" font="vector" ratio="10" rot="R180"/>
->>>>>>> Prototype LM2665 charge pump
->>>>>>> Prototype LM2665 charge pump
 </element>
 <element name="R2" library="rcl" package="R0603" value="10K" x="16.891" y="5.08" smashed="yes">
 <attribute name="NAME" x="18.542" y="4.953" size="0.8128" layer="25" font="vector"/>
@@ -1964,20 +1903,6 @@ Please make sure your boards conform to these design rules.</description>
 <element name="Q2" library="bt_transistor" package="SOT-23" value="BJT-NPNSOT23" x="14.478" y="15.367" smashed="yes" rot="R270">
 <attribute name="NAME" x="15.621" y="16.129" size="0.8128" layer="25" font="vector" ratio="10" align="bottom-center"/>
 </element>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<element name="U$5" library="bt" package="BTLOGOM" value="BTLOGO-LOGO-MD" x="5.334" y="1.524" rot="MR0"/>
-<element name="TP1" library="SparkFun-Connectors" package="PAD.03X.05" value="VCC" x="6.35" y="12.7" rot="MR90"/>
-<element name="TP2" library="SparkFun-Connectors" package="PAD.03X.05" value="LED" x="3.81" y="12.7" rot="MR90"/>
-=======
->>>>>>> replace charge pump with ic
-=======
-=======
-<element name="U$5" library="bt" package="BTLOGOM" value="BTLOGO-LOGO-MD" x="5.334" y="1.524" rot="MR0"/>
-<element name="TP1" library="SparkFun-Connectors" package="PAD.03X.05" value="VCC" x="6.35" y="12.7" rot="MR90"/>
-<element name="TP2" library="SparkFun-Connectors" package="PAD.03X.05" value="LED" x="3.81" y="12.7" rot="MR90"/>
->>>>>>> Prototype LM2665 charge pump
->>>>>>> Prototype LM2665 charge pump
 </elements>
 <signals>
 <signal name="VCC">
@@ -1990,22 +1915,6 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="16.041" y1="5.08" x2="14.566" y2="5.08" width="0.4064" layer="1"/>
 <wire x1="11.43" y1="10.16" x2="11.247" y2="10.16" width="0.4064" layer="16"/>
 <wire x1="11.247" y1="10.16" x2="8.89" y2="12.39" width="0.4064" layer="16"/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<contactref element="D1" pad="A"/>
-<wire x1="15.628" y1="16.383" x2="16.39" y2="16.376" width="0.4064" layer="1"/>
-<wire x1="16.39" y1="16.376" x2="16.891" y2="15.875" width="0.4064" layer="1"/>
-<wire x1="16.891" y1="15.875" x2="16.891" y2="9.017" width="0.4064" layer="1"/>
-<wire x1="11.43" y1="10.16" x2="12.446" y2="10.16" width="0.4064" layer="16"/>
-<wire x1="12.446" y1="10.16" x2="14.224" y2="8.382" width="0.4064" layer="16"/>
-<wire x1="14.224" y1="8.382" x2="14.224" y2="6.9723" width="0.4064" layer="16"/>
-<via x="14.224" y="6.9723" extent="1-16" drill="0.3302"/>
-<contactref element="TP1" pad="P$1"/>
-<wire x1="6.35" y1="12.7" x2="8.58" y2="12.7" width="0.254" layer="16"/>
-<wire x1="8.58" y1="12.7" x2="8.89" y2="12.39" width="0.254" layer="16"/>
-=======
-=======
->>>>>>> Prototype LM2665 charge pump
 <contactref element="U2" pad="1"/>
 <wire x1="10.371" y1="14.417" x2="10.371" y2="13.871" width="0.254" layer="1"/>
 <wire x1="10.371" y1="13.871" x2="8.89" y2="12.39" width="0.254" layer="1"/>
@@ -2017,23 +1926,6 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="14.732" y1="6.985" x2="14.732" y2="8.128" width="0.254" layer="16"/>
 <wire x1="14.732" y1="8.128" x2="12.7" y2="10.16" width="0.254" layer="16"/>
 <wire x1="12.7" y1="10.16" x2="11.43" y2="10.16" width="0.254" layer="16"/>
-<<<<<<< HEAD
->>>>>>> replace charge pump with ic
-=======
-=======
-<contactref element="D1" pad="A"/>
-<wire x1="15.628" y1="16.383" x2="16.39" y2="16.376" width="0.4064" layer="1"/>
-<wire x1="16.39" y1="16.376" x2="16.891" y2="15.875" width="0.4064" layer="1"/>
-<wire x1="16.891" y1="15.875" x2="16.891" y2="9.017" width="0.4064" layer="1"/>
-<wire x1="11.43" y1="10.16" x2="12.446" y2="10.16" width="0.4064" layer="16"/>
-<wire x1="12.446" y1="10.16" x2="14.224" y2="8.382" width="0.4064" layer="16"/>
-<wire x1="14.224" y1="8.382" x2="14.224" y2="6.9723" width="0.4064" layer="16"/>
-<via x="14.224" y="6.9723" extent="1-16" drill="0.3302"/>
-<contactref element="TP1" pad="P$1"/>
-<wire x1="6.35" y1="12.7" x2="8.58" y2="12.7" width="0.254" layer="16"/>
-<wire x1="8.58" y1="12.7" x2="8.89" y2="12.39" width="0.254" layer="16"/>
->>>>>>> Prototype LM2665 charge pump
->>>>>>> Prototype LM2665 charge pump
 </signal>
 <signal name="GND">
 <contactref element="C1" pad="2"/>
@@ -2133,30 +2025,9 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="N$3">
 <contactref element="LED1" pad="A"/>
 <contactref element="R1" pad="2"/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<wire x1="6.262" y1="16.383" x2="5.461" y2="16.383" width="0.4064" layer="1"/>
-<wire x1="5.461" y1="16.383" x2="3.81" y2="14.732" width="0.4064" layer="1"/>
-<wire x1="3.81" y1="14.732" x2="3.81" y2="10.16" width="0.4064" layer="1"/>
-<contactref element="TP2" pad="P$1"/>
-<wire x1="3.81" y1="12.7" x2="3.81" y2="10.16" width="0.254" layer="16"/>
-=======
 <wire x1="4.191" y1="14.517" x2="4.191" y2="12.827" width="0.254" layer="1"/>
 <wire x1="4.191" y1="12.827" x2="3.81" y2="12.446" width="0.254" layer="1"/>
 <wire x1="3.81" y1="12.446" x2="3.81" y2="10.16" width="0.254" layer="1"/>
->>>>>>> replace charge pump with ic
-=======
-<wire x1="4.191" y1="14.517" x2="4.191" y2="12.827" width="0.254" layer="1"/>
-<wire x1="4.191" y1="12.827" x2="3.81" y2="12.446" width="0.254" layer="1"/>
-<wire x1="3.81" y1="12.446" x2="3.81" y2="10.16" width="0.254" layer="1"/>
-=======
-<wire x1="6.262" y1="16.383" x2="5.461" y2="16.383" width="0.4064" layer="1"/>
-<wire x1="5.461" y1="16.383" x2="3.81" y2="14.732" width="0.4064" layer="1"/>
-<wire x1="3.81" y1="14.732" x2="3.81" y2="10.16" width="0.4064" layer="1"/>
-<contactref element="TP2" pad="P$1"/>
-<wire x1="3.81" y1="12.7" x2="3.81" y2="10.16" width="0.254" layer="16"/>
->>>>>>> Prototype LM2665 charge pump
->>>>>>> Prototype LM2665 charge pump
 </signal>
 <signal name="VHI">
 <contactref element="R1" pad="1"/>
