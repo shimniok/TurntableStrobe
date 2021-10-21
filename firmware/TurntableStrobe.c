@@ -78,15 +78,15 @@
  */
 inline void led(const uint8_t on) {
 	if (on) {
-		DDRB |= (1<<LED);    // Make output
+		PORTB |= (1<<LED);
 	} else {
-		DDRB &= ~(1<<LED); // Make input (Hi-Z)
+		PORTB &= ~(1<<LED);
 	}
 }
 
 int main() {
 	// Initialization
-	PORTB &= ~(1<<LED); 			// Turn off the LED
+	DDRB |= (1<<LED);    // Make output
 	led(0);
 
 	TCCR1 |= (1<<PWM1A)|			// PWM using OCR1A to count and OCR1C to match;
