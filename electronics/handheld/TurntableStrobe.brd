@@ -1897,7 +1897,7 @@ Please make sure your boards conform to these design rules.</description>
 <element name="R4" library="rcl" package="R0603" value="10K" x="15.367" y="12.7" smashed="yes">
 <attribute name="NAME" x="13.97" y="13.081" size="0.8128" layer="25" font="vector" ratio="10" rot="R180"/>
 </element>
-<element name="C2" library="rcl" package="C0603" value="10uF" x="2.54" y="15.367" smashed="yes" rot="R270">
+<element name="C2" library="rcl" package="C0603" value="47uF" x="2.54" y="15.367" smashed="yes" rot="R270">
 <attribute name="NAME" x="2.667" y="13.335" size="0.8128" layer="25" font="vector" ratio="10" rot="R180" align="center"/>
 </element>
 <element name="Q2" library="bt_transistor" package="SOT-23" value="BJT-NPNSOT23" x="14.478" y="15.367" smashed="yes" rot="R270">

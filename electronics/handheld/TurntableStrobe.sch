@@ -9460,7 +9460,7 @@ ideal performance for battery powered systems.</description>
 <part name="C3" library="rcl" deviceset="C-US" device="C0603" value="10uF"/>
 <part name="GND5" library="mes" deviceset="GND" device=""/>
 <part name="R4" library="rcl" deviceset="R-US_" device="R0603" value="10K"/>
-<part name="C2" library="rcl" deviceset="C-US" device="C0603" value="10uF"/>
+<part name="C2" library="rcl" deviceset="C-US" device="C0603" value="47uF"/>
 <part name="Q2" library="bt_transistor" deviceset="BJT-NPN" device="SOT23" value="BJT-NPNSOT23"/>
 <part name="GND6" library="mes" deviceset="GND" device=""/>
 </parts>
@@ -9471,8 +9471,7 @@ ideal performance for battery powered systems.</description>
 <text x="150.876" y="17.78" size="3.81" layer="94">TURNTABLE STROBE</text>
 <text x="231.14" y="17.78" size="3.81" layer="94">R0.4</text>
 <text x="208.28" y="63.5" size="1.778" layer="90">Q: Can 47uF capacitors be used?</text>
-<text x="195.58" y="88.9" size="1.778" layer="90">Q: Does a large supply cap help?</text>
-<text x="73.66" y="71.12" size="1.778" layer="90">Q: Is it unsafe to drive pin directly?</text>
+<text x="86.36" y="48.26" size="1.778" layer="90">Q: Unsafe to expose GPIO to 6V w/ leakage current?</text>
 </plain>
 <instances>
 <instance part="R1" gate="G$1" x="137.16" y="73.66" rot="MR0"/>
