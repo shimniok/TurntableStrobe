@@ -16,8 +16,7 @@
  *
  * For the LED, TIMER1 is used with overflow interrupt to increment a
  * counter variable for precise timing. Another variable controls the
- * duty cycle. The LED cathode (ground side) is connected to the GPIO
- * pin, so the LED is on when the pin is low (sinking current).
+ * duty cycle.
  *
  * While I realize there are other ways to do all this (such as running
  * the charge pump off OC1A) this is what I chose for now. No need to
@@ -74,7 +73,10 @@
 #define PUMP PB0
 
 /**
- * LED cathode is connected to LED pin, so pin low => on, high => off
+ * The LED cathode is pulled to ground with an NPN BJT
+ * Base is connected to the LED GPIO pin, thus:
+ *   GPIO high --> LED on
+ *   GPIO low  --> LED off
  */
 inline void led(const uint8_t on) {
 	if (on) {
@@ -85,19 +87,18 @@ inline void led(const uint8_t on) {
 }
 
 int main() {
-	// Initialization
-	DDRB |= (1<<LED);    // Make output
-	led(0);
+	DDRB |= (1<<LED);  // Make GPIO an output
+	led(0);            // Turn off LED to start with
 
-	TCCR1 |= (1<<PWM1A)|			// PWM using OCR1A to count and OCR1C to match;
-			 (1<<CTC1)|				// Clear timer on compare match;
-			 (1<<CS11)|(1<<CS10);	// Timer prescaler, see DesignCalcs.ods, TimerCalc tab
-	OCR1C = MATCH-1;				// To get N counts, set OCR1C to N-1
-	TIMSK |= (1<<TOIE1);			// Enable interrupt on timer overflow
+	TCCR1 |= (1<<PWM1A)|    			// PWM using OCR1A to count and OCR1C to match;
+					 (1<<CTC1)|				    // Clear timer on compare match;
+			     (1<<CS11)|(1<<CS10);	// Timer prescaler, see DesignCalcs.ods, TimerCalc tab
+	OCR1C = MATCH-1;				      // To get N counts, set OCR1C to N-1
+	TIMSK |= (1<<TOIE1);			    // Enable interrupt on timer overflow
 	sei();
 
 	while (1) {
-		_delay_ms(1); // nothing to do here.
+		_delay_ms(1); // nothing to do here; blinking is timer interrupt-driven
 	}
 }
 
@@ -110,8 +111,6 @@ int main() {
  */
 ISR(TIM1_OVF_vect) {
 	static uint8_t count = 0;
-
-//	PINB |= (1<<PUMP); // Toggle charge pump line
 
 	count++;
 	if (count >= PERIOD) count = 0;
